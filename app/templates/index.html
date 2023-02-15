@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+      <title>Calorie Calculator App</title>
+
+      <!-- Bootstrap CSS -->
+      <link href="static/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+        <div class="row mt-3">
+            <h3 class="text-center">Calories Calculator</h3>
+            <div class="col-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="height" class="form-label">{{calories_form.height.label}}</label>
+                        {{
+                            calories_form.height(
+                                class="form-control",
+                                type="number",
+                                placeholder=calories_form.height.description
+                            )
+                        }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="weight" class="form-label">{{calories_form.weight.label}}</label>
+                        {{
+                            calories_form.weight(
+                                class="form-control",
+                                type="number",
+                                placeholder=calories_form.weight.description
+                            )
+                        }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">{{calories_form.age.label}}</label>
+                        {{ calories_form.weight(class="form-control", type="number") }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">{{calories_form.country.label}}</label>
+                        {{ calories_form.weight(class="form-control", type="text") }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">{{calories_form.city.label}}</label>
+                        {{ calories_form.weight(class="form-control", type="text") }}
+                    </div>
+                    {{ calories_form.submit(class="btn btn-success w-100 mt-3") }}
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="accordion mt-3" id="accordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-one">
+                      <button
+                              class="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapse-one"
+                              aria-expanded="false"
+                              aria-controls="collapse-one"
+                      >
+                        Why city and country are important?
+                      </button>
+                    </h2>
+                    <div id="collapse-one" class="accordion-collapse collapse" aria-labelledby="heading-one" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Overall, populations living in warmer climates tend to have lower BMR
+                        than those living in colder climates, even after controlling for
+                        body size and composition.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% if results %}
+                 [results]
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Javascripts -->
+    <script src="static/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
