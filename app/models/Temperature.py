@@ -10,7 +10,7 @@ class Temperature:
     __yml_path = 'temperature.yml'
     __url = 'https://www.timeanddate.com/weather/'
     __extractor = Extractor.from_yaml_file(__yml_path)
-    def __init__(self, country, city) -> None:
+    def __init__(self, country: str, city: str) -> None:
         self.country = country.replace(' ', '-')
         self.city = city.replace(' ', '-')
 

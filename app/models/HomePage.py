@@ -1,10 +1,22 @@
 """ App main page class """
 from flask.views import  MethodView
-from flask import render_template
+from flask import render_template, request
 from .CaloriesForm import CaloriesForm
+from .Calorie import Calorie
+from .Temperature import Temperature
+
 
 class HomePage(MethodView):
 
     def get(self):
         calories_form = CaloriesForm()
+
         return render_template('index.html', calories_form=calories_form)
+
+    def post(self):
+        calories_form = CaloriesForm(request.form)
+        print(calories_form.data)
+        temperature = Temperature(country=calories_form.country.data, city=calories_form.city.data).get()
+        # calorie = Calorie(temperature=temperature.get(), **calories_form.data)
+
+        return render_template('index.html', calories_form=calories_form, results=temperature)
