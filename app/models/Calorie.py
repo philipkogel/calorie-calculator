@@ -13,4 +13,7 @@ class Calorie(User):
 
     def calculate(self) -> float:
         """Calculate calories from gathered data"""
-        return float(10 * self.weight + 6.25 * self.height - 5 * self.age + 5 - 10 * self.temperature)
+        temp = self.temperature
+        if temp is None:
+            temp = 0
+        return float(10 * self.weight + 6.25 * self.height - 5 * self.age + 5 - 10 * temp)
