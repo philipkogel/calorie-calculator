@@ -5,7 +5,10 @@ from wtforms.validators import DataRequired, NumberRange, ValidationError
 class CaloriesForm(Form):
     height = IntegerField(
         label='Height',
-        validators=[DataRequired(), NumberRange(min=1, max=250)],
+        validators=[
+            DataRequired(),
+            NumberRange(min=1, max=250)
+        ],
         description='Enter height in cm'
     )
     weight = IntegerField(
@@ -15,7 +18,10 @@ class CaloriesForm(Form):
     )
     age = IntegerField(
         label='Age',
-        validators=[DataRequired(), NumberRange(min=1, max=120)],
+        validators=[
+            DataRequired(),
+            NumberRange(min=1, max=120)
+        ],
         description="20"
     )
     city = StringField(label='City', validators=[DataRequired()], description="Warsaw")
