@@ -3,12 +3,12 @@ from wtforms.validators import DataRequired, NumberRange, ValidationError
 
 
 class CaloriesForm(Form):
-    height = FloatField(
+    height = IntegerField(
         label='Height',
         validators=[DataRequired(), NumberRange(min=1, max=250)],
         description='Enter height in cm'
     )
-    weight = FloatField(
+    weight = IntegerField(
         label='Weight',
         validators=[DataRequired(), NumberRange(min=1, max=600)],
         description='Enter weight in kg'
